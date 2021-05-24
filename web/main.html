@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Magic Mirror</title>
+	<script src="script.js"></script>
+	<style id="applicationStylesheet" type="text/css">
+		html {
+			font-family:'Courier New', Courier, monospace;
+			margin: 0;
+			padding: 0;
+			background-color: rgb(98, 145, 149);
+			color: rgb(209, 225, 226);
+			font-weight: bold;
+		}
+		#title {
+			left: 39%;
+			top: 25%;
+			position:absolute;
+			font-size: 56px;
+		}
+		#todo {
+			left: 45%;
+			top: 45%;
+			position: absolute;
+			font-size: 35px;
+		}
+		#todo_List {
+			left: 42%;
+			top: 51%;
+			position: absolute;
+			font-size: 27px;
+			
+		}
+		#time {
+			left: 38%;
+			top: 35%;
+			position:absolute;
+			font-size: 40px;
+		}
+		#days {
+			left: 1427px;
+			top: 30px;
+			position: absolute;
+			font-size: 26px;
+		}
+		.weather {
+			right: 4%;
+			top: 3%;
+			position: absolute;
+			font-size: 25px;
+      	}
+		.ball {
+			top: 3%;
+			left: 1.5%;
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background-color: rgb(209, 225, 226);;
+
+			animation: bounce 0.5s;
+			animation-direction: alternate;
+			animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes bounce {
+			from {transform: translate3d(0, 0, 0);}
+			to   {transform: translate3d(0, 20px, 0);}
+		}
+		.cmd{
+			left: 3%;
+			top: 3%;
+			font-size: 25px;
+			position: absolute;
+		}
+	</style>
+	<script>
+		function time(){
+		var date = new Date();
+
+		var d = date.getDate();
+		var m = date.getMonth() + 1;
+		var y = date.getFullYear();
+
+		var hour = date.getHours();
+		var min = date.getMinutes();
+		var sec = date.getSeconds();
+		min = check(min);
+		sec = check(sec);
+
+		if (m==1){
+			m = "Jan"
+		}
+		else if (m==2){
+			m = "Feb"
+		}
+		else if (m==3){
+			m = "Mar"
+		}
+		else if (m==4){
+			m = "Apr"
+		}
+		else if (m==5){
+			m = "May"
+		}
+		else if (m==6){
+			m = "Jun"
+		}
+		else if (m==7){
+			m = "Jul"
+		}
+		else if (m==8){
+			m = "Aug"
+		}
+		else if (m==9){
+			m = "Sep"
+		}
+		else if (m==10){
+			m = "Oct"
+		}
+		else if (m==11){
+			m = "Nov"
+		}
+		else if (m==12){
+			m = "Dec"
+		}
+
+		document.getElementById('today').innerHTML = 
+			hour + ":"+ min +":"+sec+"\xA0\xA0\xA0\xA0"+m+" "+d;
+		var tm = setTimeout(time,500);
+		}
+		function check(x){
+		if(x<10){
+			x ="0"+x
+		};
+		return x
+		}
+	</script>
+</head>
+<body onload = "time()" id = 'colock'>
+	<div class="ball"></div>
+	<div class="cmd">
+		Say anything like: Hello, play music.
+	</div>
+	<div id="title">
+		<span>Magic Mirror</span><br>
+	</div>
+	<div id="todo">
+		<span>Todo List</span>
+	</div>
+	<br>
+	<div id="todo_List">
+		<span>
+			Meeting with David
+			<br>ECE 17 Hard Quiz
+			<br>Meeting with Rick
+		</span>
+	</div>
+	<div id="time">
+		<span id="today"></span>
+	</div>
+	<div id="days">
+		<span id="date"></span>
+	</div>
+	<div class="weather">
+		<div class="temp"></div>
+		<div class="location"></div>
+	</div>
+</body>
+</html>
