@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         var todo = document.getElementById("todo").value;
         var data = {f: todo};
         fetch(
-        '/add_visitor',
+        '/add_todolist',
         {
             method: 'POST',
             headers: {

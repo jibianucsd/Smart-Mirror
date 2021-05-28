@@ -21,7 +21,7 @@ try:
     );
   """)
 except:
-  print("Lists table already exists. Not recreating it.")
+  print("List table already exists. Not recreating it.")
 
 query = "insert into List (todo, created_at) values (%s, %s)"
 values = [

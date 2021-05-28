@@ -72,7 +72,7 @@
 		}
 	</style>
 	<script>
-		function time(){
+	function time(){
 		var date = new Date();
 
 		var d = date.getDate();
@@ -120,7 +120,6 @@
 		else if (m==12){
 			m = "Dec"
 		}
-
 		document.getElementById('today').innerHTML = 
 			hour + ":"+ min +":"+sec+"\xA0\xA0"+m+" "+d;
 		var tm = setTimeout(time,500);
@@ -133,13 +132,13 @@
 		else{
 			document.getElementById('title').innerHTML = "Good Morning!"
 		}
-		}
-		function check(x){
+	}
+	function check(x){
 		if(x<10){
 			x ="0"+x
 		};
 		return x
-		}
+	}
 	</script>
 </head>
 <body onload = "time()" id = 'colock'>
@@ -157,11 +156,20 @@
 	</div>
 	<br>
 	<div id="todo_List">
-		<span>
-			Meeting with David
-			<br>ECE 17 Hard Quiz
-			<br>Meeting with Rick
-		</span>
+		<table>
+			<thead>
+				<tr>
+					<th>Todo List</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for todo in todos %}
+				<tr>
+					<td>{{todo[0]}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 	</div>
 	
 	<div id="days">
