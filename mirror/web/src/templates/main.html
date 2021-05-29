@@ -22,17 +22,12 @@
 			font-size: 3vw;
 		}
 		#todo {
-			margin-top: 2.5vw;
-			text-align: center;
+			margin-top: 1.5vw;
+			margin-left: 43vw;
 			position:relative;
 			font-size: 2vw;
 		}
-		#todo_List {
-			margin-top: 0.1vw;
-			text-align: center;
-			position:relative;
-			font-size: 2vw;
-		}
+
 		#time {
 			margin-top: 1vw;
 			text-align: center;
@@ -151,26 +146,21 @@
 	<div id="time">
 		<span id="today"></span>
 	</div>
-	<div id="todo">
-		<span>Todo List</span>
-	</div>
 	<br>
-	<div id="todo_List">
-		<table>
-			<thead>
-				<tr>
-					<th>Todo List</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for todo in todos %}
-				<tr>
-					<td>{{todo[0]}}</td>
-				</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	</div>
+	<table id="todo">
+		<thead>
+			<tr>
+				<th>Todo List</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for todo in todos %}
+			<tr>
+				<td>{{todo[0]}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 	
 	<div id="days">
 		<span id="date"></span>
