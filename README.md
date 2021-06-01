@@ -1,3 +1,4 @@
-# mirror-panel
+# Smart Mirror
 
-A website that can show current time and weather.
+ECE 140B Final project
+One for display, one for user to update todo list.
